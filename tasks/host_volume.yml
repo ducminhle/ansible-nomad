@@ -6,3 +6,4 @@
     state: directory
     mode: "{{ item['mode'] | default('0644') }}"
   with_items: "{{ nomad_host_volumes }}"
+  when: item['change_mode'] | default('true') | bool
